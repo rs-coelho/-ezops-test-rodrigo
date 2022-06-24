@@ -1,4 +1,4 @@
-# -ezops-test-rodrigo
+# ezops-test-rodrigo
 DevOps Test for EzOps
 
 the simple-chat only has a small modification requested by the test. 

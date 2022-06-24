@@ -38,4 +38,7 @@ npm install package-lock.json
 npm install -g nodemon
 nodemon ./server.js
 
+sudo docker build -t ezops-test-rodrigo .
 
+sudo docker kill $(sudo docker container ls -q)
+sudo docker run -dp 3000:3000 ezops-test-rodrigo
