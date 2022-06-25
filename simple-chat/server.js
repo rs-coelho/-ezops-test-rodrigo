@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser')
 var app = express();
-var cors = require('cors');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
@@ -9,7 +8,12 @@ var mongoose = require('mongoose');
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
-app.use(cors())
+app.use(function (req,res,next){
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Methods','*');
+    res.setHeader('Access-Control-Allow-Headers','*');
+    next();
+})
 
 var Message = mongoose.model('Message',{
   name : String,
