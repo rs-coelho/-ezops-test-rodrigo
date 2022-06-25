@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser')
 var app = express();
+var cors = require('cors');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
@@ -8,6 +9,7 @@ var mongoose = require('mongoose');
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
+app.use(cors())
 
 var Message = mongoose.model('Message',{
   name : String,
